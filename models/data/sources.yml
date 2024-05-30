@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: TROCCOTEST
+    schema: TROCCO_DBT
+    tables:
+      - name: jaffle_shop_customers
+      - name: jaffle_shop_orders
+
+  - name: stripe
+    database: TROCCOTEST
+    schema: TROCCO_DBT
+    tables:
+      - name: stripe_payments
