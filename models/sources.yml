@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: TROCCOTEST
+    schema: TROCCO_DBT
+    tables:
+      - name: customers
+      - name: orders
