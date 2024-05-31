@@ -1,0 +1,83 @@
+---
+id: 186657
+name: SaaSEvgMSSQL2Snow v2
+description: ''
+user:
+  id: 3979
+  email: ask_salesforce@mz.co.kr
+transfer_option:
+  transfer_type: normal
+  in:
+    type: sqlserver
+    sqlserver_connection:
+      id: 189
+      name: SaaSEvgMSSQL-RDS
+    database: SalesforceCopy
+    schema: dbo
+    default_timezone: UTC
+    column_options: 
+    table: Table_1
+    incremental_columns:
+    - Updated_Date
+    fetch_rows: 10000
+    connect_timeout: 300
+    socket_timeout: 1800
+    custom_variables: []
+    incremental_loading_enabled: true
+  out:
+    type: snowflake
+    snowflake_connection:
+      id: 380
+      name: SaaSEvgVO45173
+    warehouse: MZC_SAMPLE_WAREHOUSE
+    database: TROCCO
+    schema: PUBLIC
+    table: sqlserver_upsert
+    retry_limit: 12
+    retry_wait: 1000
+    max_retry_wait: 1800000
+    mode: merge
+    default_timezone: UTC
+    column_options: 
+    empty_field_as_null: true
+    batch_size: 200
+    delete_stage_on_error: false
+    merge_keys:
+    - id
+    custom_variables: []
+  data_settings:
+    columns:
+    - name: id
+      src: id
+      default: ''
+      type: string
+    - name: opportunity_id
+      src: opportunity_id
+      default: ''
+      type: string
+    - name: Owner
+      src: Owner
+      default: ''
+      type: string
+    - name: Company
+      src: Company
+      default: ''
+      type: string
+    - name: BRN
+      src: BRN
+      default: ''
+      type: string
+    - name: Created_Date
+      src: Created_Date
+      default: ''
+      type: string
+    - name: Updated_Date
+      src: Updated_Date
+      default: ''
+      type: string
+  is_runnable_concurrently: false
+  retry_limit: 0
+labels: []
+job_schedules: []
+triggers: []
+notifications: []

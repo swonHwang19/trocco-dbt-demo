@@ -1,0 +1,62 @@
+---
+id: 201679
+name: SaaSEvgMSSQL2Snow v2 (Copy)
+description: ''
+user:
+  id: 3979
+  email: ask_salesforce@mz.co.kr
+transfer_option:
+  transfer_type: normal
+  in:
+    type: sqlserver
+    sqlserver_connection:
+      id: 189
+      name: SaaSEvgMSSQL-RDS
+    database: SalesforceCopy
+    schema: dbo
+    default_timezone: UTC
+    column_options: 
+    table: test_nrt2
+    incremental_columns: []
+    fetch_rows: 10000
+    connect_timeout: 300
+    socket_timeout: 1800
+    custom_variables: []
+    incremental_loading_enabled: true
+  out:
+    type: snowflake
+    snowflake_connection:
+      id: 380
+      name: SaaSEvgVO45173
+    warehouse: MZC_SAMPLE_WAREHOUSE
+    database: TROCCO
+    schema: PUBLIC
+    table: sqlserver3
+    retry_limit: 12
+    retry_wait: 1000
+    max_retry_wait: 1800000
+    mode: merge
+    default_timezone: UTC
+    column_options: 
+    empty_field_as_null: true
+    batch_size: 200
+    delete_stage_on_error: false
+    merge_keys:
+    - id
+    custom_variables: []
+  data_settings:
+    columns:
+    - name: id
+      src: id
+      default: ''
+      type: long
+    - name: brn
+      src: brn
+      default: ''
+      type: string
+  is_runnable_concurrently: true
+  retry_limit: 0
+labels: []
+job_schedules: []
+triggers: []
+notifications: []
